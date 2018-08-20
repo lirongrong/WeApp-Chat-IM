@@ -1,0 +1,65 @@
+<!--聊天内容-->
+<scroll-view scroll-y="true" class='padding20' style="width:auto; padding-bottom:{{isShowModelUp==true?'448':'100'}}rpx;"> 
+  <block wx:for="{{chatList}}" wx:key="key">
+    <view class='weui-flex mb20' wx:if="{{item.time}}">
+      <text class='chat_time'>{{item.time}}</text>
+    </view>
+    <view class="weui-flex mb20 {{item.isAdmin==true?'weui-flex_juscon_end':'chat_list_user'}}"> 
+      <!--我发出的内容-->
+      <image wx:if="{{item.isAdmin==false}}" src='{{item.userImage}}' class='user_img img_chat'></image>
+      <view class='chat_list_box pr'>
+        <text wx:if="{{item.text}}">{{item.text}}</text>
+        <image wx:if="{{item.imgUrl}}" src='{{item.imgUrl}}' data-src='{{item.imgUrl}}' mode='widthFix' style='max-width:100%;' bindtap='previewImage'></image>
+        <map wx:if="{{item.map}}" class='pr' style="width: 220px; height: 160px; z-index:0;"  
+            longitude='{{longitude}}' 
+            latitude='{{latitude}}'
+            scale='16'
+            markers='{{markers}}'></map>
+        <audio wx:if="{{item.audioUrl}}" style='width:100rpx; height:60rpx; background:#f6f6f6;' src="{{item.audioUrl}}" bindtap='playRecord' class='pr' data-isShowLuYin="{{isShowLuYin}}">
+          <text class='pa' style='top:0; line-height:60rpx; left:10rpx;'>{{item.audioDuration}}</text>
+        </audio>
+        <icon class="iconfont pa {{item.isAdmin==true?'icon-sanjiaoxing-right':'icon-sanjiaoxing-left'}}"></icon>
+      </view> 
+       <!--对方发出的内容-->
+      <image wx:if="{{item.isAdmin==true}}" src='{{item.userImage}}' class='user_img img_chat'></image>
+    </view>
+  </block> 
+  <view id='bottom' hidden=''></view>
+</scroll-view>
+
+<!--聊天输入框-->
+<view class='chat_bottom_box'>
+  <view class='weui-flex'>
+    <icon class="iconfont {{isLuYin==false?'icon-luyin':'icon-jianpan'}}" bindtap='btnRecord'></icon>
+    <input class='weui-flex__item' hidden='{{isLuYin}}' bindconfirm='btnConfirm' value='{{inputValue}}'/> 
+    <view class='luyin weui-flex__item' hidden='{{!isLuYin}}' bindtouchstart='startRecord' bindtouchend='stopRecord'>{{luYinText}}</view> 
+    <icon class='iconfont icon-xiaolian' hidden='true'></icon>
+    <icon class='iconfont icon-tianjia' bindtap='showModelUp'></icon>
+  </view>
+  <!--点击加号弹出来其他输入类型-->
+  <view hidden='{{!isShowModelUp}}'>
+    <view class='chat_bottom_add weui-flex weui-flex-wrap'>
+      <view class=' tc'>
+        <view class='chat_bottom_add_li' bindtap='chooseImage'>
+          <icon class='iconfont icon-tupian'></icon>
+        </view>
+        <text class='f16 col999'>照片</text>
+      </view>
+      <view class='tc'>
+        <view class='chat_bottom_add_li' bindtap='paishe'>
+          <icon class='iconfont icon-paishe'></icon>
+        </view>
+        <text class='f16 col999'>拍摄</text>
+      </view>
+      <view class='tc'>
+        <view class='chat_bottom_add_li' bindtap='getlocat'>
+          <icon class='iconfont icon-weizhi'></icon>
+        </view>
+        <text class='f16 col999'>位置</text>
+      </view>
+    </view>
+    <!--取消按钮/关闭弹窗-->
+    <view class='f18 col999 btn_close_model' bindtap='closeModelUp'>取消</view>  
+  </view>
+</view>
+

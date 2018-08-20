@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/chat"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#37383b",
+    "navigationBarTitleText": "chat-im",
+    "navigationBarTextStyle": "white"
+  }
+}

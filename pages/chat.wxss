@@ -1,0 +1,22 @@
+/* pages/user/chat.wxss */
+page{
+  background: #ebebeb;
+}
+/*聊天窗口*/
+.user_img.img_chat{ width: 65rpx;height: 65rpx; margin-top:0; border:0;}
+.chat_list_box{ max-width: 70%; background: #fff; padding: 20rpx; border-radius: 10rpx; margin-right:20rpx;}
+.icon-sanjiaoxing-right{  top:0; color: #fff; font-size: 40rpx; right:-26rpx; }
+.icon-sanjiaoxing-left{  top:0; color: #fff; font-size: 40rpx; left:-26rpx; }
+.chat_list_user .chat_list_box{ margin-left:20rpx;} 
+.chat_bottom_box{ bottom:0; left:0; right:0; background: #f5f4f6; border-top:2rpx solid #eaeaea; position: fixed; z-index: 1000;}
+.chat_bottom_box input{ height: 70rpx; line-height: 70rpx; padding:0 10rpx; border: 2rpx solid #dddcdd; border-radius: 6rpx; background: #fcfcfc; margin: 15rpx 0;}
+.luyin{height: 70rpx; line-height: 70rpx; padding:0 10rpx; border: 2rpx solid #dddcdd; border-radius: 6rpx; background: #f6f5f7; margin: 15rpx 0; text-align: center;}
+.chat_bottom_box button{ background: #ff6633; border-radius: 4rpx; color: #fff;  height: 100rpx; line-height: 100rpx;}
+.chat_time{ background: #dadada; color: #fff; border-radius: 4rpx; padding:4rpx 8rpx; margin: 0 auto;}
+.chat_bottom_box icon{ font-size: 50rpx; text-align: center; line-height: 100rpx; color: #808388; padding:0 20rpx;}
+.chat_bottom_box icon.icon-xiaolian{ padding-right:0;}
+.chat_bottom_add{background: #f5f4f6; border-top: 2rpx solid #eaeaea; padding:32rpx; }  
+.chat_bottom_add .tc{ flex-basis:25%; -webkit-flex-basis:25%; }
+.chat_bottom_add_li{ margin: 0 20rpx; background: #fff;border: 2rpx solid #e4e4e5; border-radius: 24rpx;padding: 12rpx;}
+.chat_bottom_add_li icon{ font-size: 60rpx; color: #808388; }
+.btn_close_model{ border-top:2rpx solid #eaeaea; height: 100rpx; line-height: 100rpx; text-align: center;}

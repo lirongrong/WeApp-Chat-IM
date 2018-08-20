@@ -1,0 +1,13 @@
+{
+  "name": "releaseeasy",
+  "version": "1.0.0",
+  "description": "releaseeasy",
+  "scripts": {
+    "dev": "node server/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodejs-websocket": "^1.7.1"
+  }
+}

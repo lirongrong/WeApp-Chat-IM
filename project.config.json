@@ -1,0 +1,39 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"ignore": [
+		{
+			"type": "folder",
+			"value": "./style"
+		}
+	],
+	"compileType": "miniprogram",
+	"libVersion": "2.0.2",
+	"appid": "wx914bd7ba0764e5d9",
+	"projectname": "chat-IM",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": []
+		}
+	}
+}
