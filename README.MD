@@ -11,7 +11,5 @@
 #### 发送位置 （map组件默认在最顶层，样式控制不了，bug还在修复中...）
 #### 发送语音 （包括语音时长，可点击播放）
 
-如下图 服务开启
+如下图 服务开启<br/>
 <img src="images/read01.png"/>
-<img src="images/01.gif"/>
-<img src="images/02.gif"/>
