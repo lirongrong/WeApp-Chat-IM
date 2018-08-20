@@ -1,3 +1,6 @@
+### chat-IM
+#### 小程序即时通讯demo
+
 ### 先下载包 
 #### nodejs-websocket
 `npm install`
