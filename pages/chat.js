@@ -17,21 +17,7 @@ let heartCheck = {
     wx.sendSocketMessage({
       data: "null",
     });
-  },
-  // start: function () {
-  //   this.timeoutObj = setTimeout(() => {
-  //     console.log("null");
-  //     wx.sendSocketMessage({
-  //       data: "null",
-  //       // success(){
-  //       //   console.log("发送ping成功");
-  //       // }
-  //     });
-  //     this.serverTimeoutObj = setTimeout(() => {
-  //       wx.closeSocket();
-  //     }, this.timeout);
-  //   }, this.timeout);
-  // },
+  }, 
 }; 
 //微信小程序新录音接口，录出来的是aac或者mp3，这里要录成mp3
 const recorderManager = wx.getRecorderManager();
@@ -72,32 +58,27 @@ Page({
       url:app.globalData.wsUrl,
       success() {
         console.log('连接成功')
-        that.initEventHandle()
+        wx.onSocketMessage((res) => {
+          console.log(res.data);
+          //收到消息
+          that.pushChatList(0, {
+            text: res.data
+          });
+        })
+        wx.onSocketOpen(() => {
+          console.log('WebSocket连接打开')
+          heartCheck.reset().start()
+        })
+        wx.onSocketError(function (res) {
+          console.log('WebSocket连接打开失败')
+          that.reconnect()
+        })
+        wx.onSocketClose(function (res) {
+          console.log('WebSocket已关闭！')
+          that.reconnect()
+        })
       }
     }) 
-  },
-  //初始化socket第一次握手
-  initEventHandle() {
-    let that = this
-    wx.onSocketMessage((res) => {
-      console.log(res.data);
-      //收到消息
-      that.pushChatList(0, {
-        text: res.data
-      });
-    })
-    wx.onSocketOpen(() => {
-      console.log('WebSocket连接打开')
-      heartCheck.reset().start()
-    })
-    wx.onSocketError(function (res) {
-      console.log('WebSocket连接打开失败')
-      that.reconnect()
-    })
-    wx.onSocketClose(function (res) {
-      console.log('WebSocket已关闭！')
-      that.reconnect()
-    })
   }, 
   //断线重连
   reconnect() { 

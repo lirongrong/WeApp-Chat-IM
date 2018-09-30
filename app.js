@@ -40,63 +40,7 @@ App({
         //登陆授权 
         that.checkAuthorization(that.onLogin);
     },
-
-    //登陆ERP之后的跳转逻辑
-    onLogin: function () {
-        var that = this;
-        var url = that.getCurrentPageUrl();
-        //排除要跳转的页面，否则页面会被刷新（特别是表单页面）
-        if (url != "pages/account/mobile" && url != "pages/account/auth") {
-            if (that.globalData.status == -1 || that.globalData.id == 0) {
-                //新用户跳转到广告页
-                wx.reLaunch({
-                    url: '/pages/help/about'
-                })
-            }
-            //手机认证页面（未手机认证）
-            else if (that.globalData.phone == null || that.globalData.phone.length == 0) {
-                //跳转手机认证页面
-                wx.reLaunch({
-                    url: '/pages/account/mobile'
-                })
-            }
-            //实名认证页面（未实名认证，或者实名认证失败）
-            else if (that.globalData.status == 0) {
-                wx.reLaunch({
-                    url: '/pages/account/auth'
-                })
-            }
-            //广告页面（实名认证中...）
-            else if (that.globalData.status == 3) {
-                wx.reLaunch({
-                    url: '/pages/account/result?auditStatus=3'
-                })
-            }
-            else if (that.globalData.status == 5) {
-                wx.reLaunch({
-                    url: '/pages/account/result?auditStatus=5'
-                })
-            }
-            //发行汇总页面（实名认证成功）
-            else if (that.globalData.status == 10) {
-                console.log("用户已认证跳转至首页");
-                //小程序进来的，默认跳转页面
-                if (url.length == 0 || url == "pages/home/temp") {
-                    //发行汇总页面
-                    wx.reLaunch({
-                        url: '/pages/home/default'
-                    })
-                }
-                //审核通过及时刷新页面
-                else if (url == "pages/account/result") {
-                    //发行汇总页面
-                    wx.reLaunch({
-                        url: '/pages/home/default'
-                    })
-                }
-            }
-        }
-    },
+ 
 
     //验证授权
     checkAuthorization: function (callback) {
@@ -188,27 +132,7 @@ App({
         that.globalData.isLoginErp=false;
         that.globalData.wxUserInfo = [];
         console.log('清除登陆信息！');
-    },
-
-    //全局数据--本地
-    // globalData: {
-    //    id: 0,   //用户编号
-    //    name: "", //用户名称
-    //    phone: "",   //用户手机 
-    //    status: null,  //用户状态 
-    //    publicOpenId: "",  //用户服务号OpenId
-    //    accessToken: null,  //应用签名
-    //    unionId: null,  //登录标识
-    //    apiHost: 'http://localhost:5630/api/',
-    //    erpHost: "http://localhost:5670/",
-    //    imgHost: "http://test.img.1caifu.com/",
-    //    expressHost: "http://express.xiaohu.in/sf/route",//快递物流轨迹查询地址
-    //    socketHost: "ws://localhost:60000",
-    //    socketConnected: false,
-    //    isLoginErp: false,
-    //    wxUserInfo: [] ,  //微信用户信息
-    //    wsHost:'http://localhost:8082',//websocket地址
-    // },
+    }, 
 
     //全局数据--测试
     globalData: {
@@ -218,34 +142,15 @@ App({
         status: null,  //用户状态 
         publicOpenId: "",  //用户服务号OpenId
         accessToken: null,  //应用签名
-        unionId: null,  //登录标识
-        apiHost: 'https://test-api.xiaohu.in/api/',  //api地址
-        erpHost: "http://test-erp.xiaohu.in/",  //erp地址
-        imgHost: "http://test.img.1caifu.com/", //文件服务地址
-        expressHost: "http://express.xiaohu.in/sf/route",//快递物流轨迹查询地址
+        unionId: null,  //登录标识 
         socketHost: "ws://localhost:60000",
         socketConnected: false,
         isLoginErp:false,
-        wxUserInfo: [],   //微信用户信息
-        wsUrl: 'ws://192.168.20.115:8001',//websocket地址
+        wxUserInfo: [],   //微信用户信息 
+        wsUrl: 'ws://localhost:8001',//websocket地址
     },
 
-
-    //全局数据--正网
-    // globalData: {
-    //   id: 0,   //用户编号
-    //   phone: "",   //用户手机 
-    //   name: "", //用户名称
-    //   status: null,  //用户状态 
-    //   publicOpenId: "",  //用户服务号OpenId
-    //   accessToken: null,  //应用签名
-    //   unionId: null,  //登录标识
-    //   apiHost: 'https://api.xiaohu.in/api/',  //api地址
-    //   erpHost: "https://erp.xiaohu.in/",  //erp地址
-    //   imgHost: "https://img.1caifu.com/", //文件服务地址
-    //   expressHost: "http://express.xiaohu.in/sf/route",//快递物流轨迹查询地址
-    //   wxUserInfo: []   //微信用户信息
-    // },
+ 
 
     //保存用户信息
     setcurrentUserInfo: function (user) {

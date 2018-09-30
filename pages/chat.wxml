@@ -1,5 +1,5 @@
 <!--聊天内容-->
-<scroll-view scroll-y="true" class='padding20' style="width:auto; padding-bottom:{{isShowModelUp==true?'448':'100'}}rpx;"> 
+<scroll-view scroll-y="true" class='padding20' style="height:1000rpx;width:auto; padding-bottom:{{isShowModelUp==true?'448':'100'}}rpx;"> 
   <block wx:for="{{chatList}}" wx:key="key">
     <view class='weui-flex mb20' wx:if="{{item.time}}">
       <text class='chat_time'>{{item.time}}</text>
@@ -10,7 +10,7 @@
       <view class='chat_list_box pr'>
         <text wx:if="{{item.text}}">{{item.text}}</text>
         <image wx:if="{{item.imgUrl}}" src='{{item.imgUrl}}' data-src='{{item.imgUrl}}' mode='widthFix' style='max-width:100%;' bindtap='previewImage'></image>
-        <map wx:if="{{item.map}}" class='pr' style="width: 220px; height: 160px; z-index:0;"  
+        <map wx:if="{{item.map}}" style="width: 220px; height: 160px; z-index:0; position:static"  
             longitude='{{longitude}}' 
             latitude='{{latitude}}'
             scale='16'
