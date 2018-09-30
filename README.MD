@@ -7,7 +7,7 @@ nodejs-websocket   `npm install`
 websocket server   `npm run dev`
 
 如下图 服务开启<br/>
-<img src="images/read01.png" style="width:400px;height:auto"/>
+<img src="images/img.png" style="width:300px;height:auto"/>
 
 ## 功能
 1. 发送图片（图片可点击放大）
