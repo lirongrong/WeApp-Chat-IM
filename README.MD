@@ -1,5 +1,5 @@
 ## chat-IM 
-小程序即时通讯demo <a href="https://juejin.im/post/5bb03203e51d450e5162a38a">link</a>
+小程序即时通讯demo <a href="https://juejin.im/post/5bb03203e51d450e5162a38a">block link</a>
 ## 下载包 
 nodejs-websocket   `npm install`
 
